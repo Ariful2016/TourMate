@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="current"
+            type="com.arifcit.tourmate.model.CurrentWeatherModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/weather_img"
+        tools:context=".ui.weather.WeatherFragment">
+
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/tempSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="10dp"
+            android:textOff="C"
+            android:textOn="F"
+            app:showText="true"
+            android:backgroundTint="@color/app_toolbar"
+            android:foregroundTint="@color/white"
+            />
+
+            <LinearLayout
+                android:id="@+id/top_lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintVertical_bias=".3"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SUN 03, 2022"
+                    app:setWeatherTimeStamp="@{current.dt}"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/aclonica"
+                    android:textSize="16dp"
+                    />
+                <TextView
+                    android:id="@+id/city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{current.name+ `, `+ current.sys.country}"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/aladin"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <ImageView
+                        android:id="@+id/temp_img"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        tools:src="@mipmap/ic_launcher"
+                        app:setWeatherIcon="@{current.weather[0].icon}"
+                        />
+                    <TextView
+                        android:id="@+id/temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="30sp"
+                        android:textColor="@color/white"
+                        android:text="@{String.valueOf(current.main.temp)}"
+                        android:layout_marginLeft="5dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/feels"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Feels like: "
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textSize="16dp"
+                        />
+                    <TextView
+                        android:id="@+id/feel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(current.main.feelsLike)}"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textSize="16dp"
+
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/haze_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Disc: "
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textSize="16dp"
+
+                        />
+                    <TextView
+                        android:id="@+id/haze"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{current.weather[0].description}"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textSize="16dp"
+
+                        />
+                </LinearLayout>
+
+
+
+
+
+
+
+
+            </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/forecastRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_lay"/>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

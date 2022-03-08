@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+       <variable
+           name="tour"
+           type="com.arifcit.tourmate.model.Tour" />
+        <variable
+            name="allExpenses"
+            type="Integer" />
+        <variable
+            name="allMoments"
+            type="Integer" />
+        
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.tourDetails.TourDetailsFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tourName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="Family Tour"
+                        android:text="@{tour.title}"
+                        android:textColor="@color/app_toolbar"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/aclonica" />
+
+                    <TextView
+                        android:id="@+id/tourDes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="Sentmarting"
+                        android:text="@{tour.destination}"
+                        android:textColor="@color/red"
+                        android:textSize="20sp"
+                        android:textStyle="italic"
+                        android:fontFamily="@font/aladin" />
+
+                    <!--<TextView
+                        android:id="@+id/tourTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="24/02/2022 5:22 pm"
+                        app:setTimeStamp="@{tour.createOn}"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/roboto_medium" />-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/BDT"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="BD: "
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/aladin" />
+                        <TextView
+                            android:id="@+id/tourBudget"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="20000"
+                            android:text="@{tour.budget.toString()}"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/aladin" />
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/expenses"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Expenses"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/app_toolbar"
+                        android:fontFamily="@font/aclonica" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/expensesText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Expenses: BTD "
+                            android:textSize="16dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textColor="@color/red" />
+                        <TextView
+                            android:id="@+id/totalExpenses"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{String.valueOf(allExpenses)}"
+                            android:textSize="16dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textColor="@color/red" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/remainingBudgetTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Remaining Budget: BTD "
+                            android:textSize="16dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textColor="@color/black" />
+                        <TextView
+                            android:id="@+id/remainingBudget"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{String.valueOf(tour.budget - allExpenses)}"
+                            android:textSize="16dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/addExpensesBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_baseline_add_circle"
+                            android:layout_margin="5dp"
+                            android:backgroundTint="@color/app_toolbar" />
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/showExpenseBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:src="@drawable/ic_baseline_add_to_que"
+                            android:backgroundTint="@color/app_toolbar" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/moments"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Moments"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/app_toolbar"
+                        android:fontFamily="@font/aclonica" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/totalImagesTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Images: "
+                            android:textSize="16dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textColor="@color/red" />
+                        <TextView
+                            android:id="@+id/totalImages"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{String.valueOf(allMoments)}"
+                            android:textSize="16dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textColor="@color/red" />
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/cameraBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_baseline_camera"
+                            android:layout_margin="5dp"
+                            android:backgroundTint="@color/app_toolbar" />
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/galleryBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:src="@drawable/ic_photo"
+                            android:backgroundTint="@color/app_toolbar" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

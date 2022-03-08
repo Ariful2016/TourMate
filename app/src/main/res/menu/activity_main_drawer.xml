@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_tours"
+            android:icon="@drawable/ic_tour"
+            android:title="@string/my_tours" />
+        <item
+            android:id="@+id/nav_weather"
+            android:icon="@drawable/weather_icon"
+            android:title="@string/weather" />
+        <item
+            android:id="@+id/nav_nearby"
+            android:icon="@drawable/ic_near"
+            android:title="@string/nearby" />
+        <item
+            android:id="@+id/nav_geo"
+            android:icon="@drawable/ic_location_on_24"
+            android:title="@string/location_alert" />
+    </group>
+</menu>

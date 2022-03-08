@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/nav_tours"
+        android:name="com.arifcit.tourmate.ui.tour.TourFragment"
+        android:label="@string/My_Tours"
+        tools:layout="@layout/fragment_tour" >
+        <action
+            android:id="@+id/action_nav_tours_to_addTourFragment"
+            app:destination="@id/addTourFragment" />
+        <action
+            android:id="@+id/action_nav_tours_to_tourDetailsFragment"
+            app:destination="@id/tourDetailsFragment" />
+        <action
+            android:id="@+id/action_nav_tours_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_weather"
+        android:name="com.arifcit.tourmate.ui.weather.WeatherFragment"
+        android:label="@string/Weather"
+        tools:layout="@layout/fragment_weather" />
+
+    <fragment
+        android:id="@+id/nav_nearby"
+        android:name="com.arifcit.tourmate.ui.nearby.NearByFragment"
+        android:label="@string/NearBy"
+        tools:layout="@layout/fragment_nearby" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.arifcit.tourmate.ui.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:popUpTo="@id/loginFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_nav_tours"
+            app:destination="@id/nav_tours"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.arifcit.tourmate.ui.register.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/registerFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_nav_tours"
+            app:destination="@id/nav_tours"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTourFragment"
+        android:name="com.arifcit.tourmate.ui.addTour.AddTourFragment"
+        android:label="Create Tour"
+        tools:layout="@layout/fragment_add_tour" >
+        <action
+            android:id="@+id/action_addTourFragment_to_nav_tours"
+            app:destination="@id/nav_tours"
+            app:popUpTo="@id/addTourFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_addTourFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tourDetailsFragment"
+        android:name="com.arifcit.tourmate.ui.tourDetails.TourDetailsFragment"
+        android:label="Tour Details"
+        tools:layout="@layout/fragment_tour_details" >
+        <action
+            android:id="@+id/action_tourDetailsFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_geo"
+        android:name="com.arifcit.tourmate.ui.geo.MapsFragment"
+        android:label="Location Alert"
+        tools:layout="@layout/fragment_maps" />
+</navigation>

@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">TourMate</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="my_tours">My Tours</string>
+    <string name="weather">Weather</string>
+    <string name="nearby">NearBy</string>
+    <string name="My_Tours">My Tours</string>
+    <string name="Weather">Weather</string>
+    <string name="NearBy">NearBy</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account. Sign up ?</string>
+    <string name="tour_name">Tour name ?</string>
+    <string name="where_do_you_want_to_go">Where do you want to go?</string>
+    <string name="location_alert">Location Alert</string>
+    <string name="title_activity_maps">MapsActivity</string>
+</resources>
